@@ -1,14 +1,21 @@
+// Declaring the variables for easier access to the elements in the HTML file.
 const convertButton = document.getElementById('convert-button');
-/*    function convert(from, to, amount) {
-        fetch(`https://api.frankfurter.dev/v1/latest?base=${from}&symbols=${to}`)
-          .then((resp) => resp.json())
-          .then((data) => {
-            const convertedAmount = (amount * data.rates[to]).toFixed(2);
-            alert(`${amount} ${from} = ${convertedAmount} ${to}`);
-          });
-        }
-      
-      convert("EUR", "USD", 10);*/
+const inputField = document.getElementById('value-one');
+const outputField = document.getElementById('value-two');
+const selectFrom = document.getElementById('from-currency');
+const selectTo = document.getElementById('to-currency');
+
+
+const convert = (from, to, amount) => {
+    fetch(`https://api.frankfurter.dev/v1/latest?base=${from}&symbols=${to}`)
+        .then((response) => response.json())
+        .then((data) => {
+        const convertedAmount = Math.floor((amount * data.rates[to]),2);
+        outputField.value = convertedAmount;
+        });
+};
+//Event listener when button convert is clicked, to convert the value and display it.
 convertButton.addEventListener('click', () => {
+    convert(selectFrom.options[selectFrom.selectedIndex].value, selectTo.options[selectTo.selectedIndex].value, inputField.value);
 
 })
