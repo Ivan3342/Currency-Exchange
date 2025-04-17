@@ -7,10 +7,10 @@ const selectTo = document.getElementById('to-currency');
 
 
 const convert = (from, to, amount) => {
-    fetch(`https://api.frankfurter.dev/v1/latest?base=${from}&symbols=${to}`)
+    fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=${from}&to=${to}`)
         .then((response) => response.json())
         .then((data) => {
-        const convertedAmount = Math.floor((amount * data.rates[to]),2);
+        const convertedAmount = Math.floor(data.rates[to],2);
         outputField.value = convertedAmount;
         });
 };
