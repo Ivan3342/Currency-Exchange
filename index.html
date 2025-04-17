@@ -11,5 +11,27 @@
         <h1>Razval.com</h1>
         <button>Sign In</button>
     </header>
+    <main>
+        <div id="currency-selector">
+            <input type="number" id="value-one" placeholder="Enter amount">
+            <select id="from-currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            </select>
+
+            <input type="number" id="value-two" placeholder="Output">
+            <select id="to-currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            </select>
+            <button id="convert-button">Convert</button>
+
+            <div id="result"></div>
+        </div>
+    </main>
 </body>
 </html>
