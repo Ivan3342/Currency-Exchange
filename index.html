@@ -11,7 +11,15 @@
         <h1>Razval.com</h1>
         <button>Sign In</button>
     </header>
+    
+    <div id="hero">
+        <h2>A place to convert your currencies</h2>
+        <p>Convert your currencies easily and quickly.</p>
+        <button onClick="document.getElementById('currency-selector').scrollIntoView();">Convert now!</button>
+    </div>
+
     <main>
+        <h2>Currency Converter</h2>
         <div id="currency-selector">
             <input type="number" id="value-one" placeholder="Enter amount">
             <select id="from-currency">
@@ -30,6 +38,10 @@
         </div>
     </main>
 
+    <footer>
+        <p>&copy; 2025 Ivan Stojadinovic. All rights reserved.</p>
+        <p>Contact: <a href="mailto:stojadinovicivan0@gmail.com">stojadinovicivan0@gmail.com</a>
+    </footer>
 
     <script src="main.js"></script>
 </body>
