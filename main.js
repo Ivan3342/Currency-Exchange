@@ -25,7 +25,7 @@ const convert = (from, to, amount) => {
         fetch(`https://v6.exchangerate-api.com/v6/b6e6c39f6ade3431969c0aa4/pair/${from}/${to}/${amount}`)
         .then((response) => response.json())
         .then((data) => {
-        const convertedAmount = Math.round(data.conversion_rate * 100) / 100;
+        const convertedAmount = Math.round(data.conversion_result * 100) / 100;
         outputField.value = convertedAmount;
         });
     }
