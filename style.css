@@ -141,15 +141,15 @@ select:focus {
     padding: 10px 20px;
     border-radius: 7px;
     border: 2px solid var(--tropical-indigo);
-    background-color: var(--dark-purple);
-    color: var(--linen);
+    background-color: var(--tropical-indigo);
+    color: var(--dark-purple);
     font-family: "Outfit", sans-serif;
     transition: all 0.3s ease-in-out;
 }
 
 #convert-button:hover {
-    background-color: var(--tropical-indigo);
-    color: var(--dark-purple);
+    background-color: var(--dark-purple);
+    color: var(--linen);
     cursor: pointer;
     box-shadow: 0px 0px 7px var(--tropical-indigo);
 }
@@ -157,4 +157,11 @@ select:focus {
 #convert-button:active {
     transform: scale(0.95);
     box-shadow: 0px 0px black;
+}
+
+#swap-symbol {
+    font-size: 2rem;
+    color: var(--dark-purple);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }

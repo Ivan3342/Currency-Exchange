@@ -4,7 +4,20 @@ const inputField = document.getElementById('value-one');
 const outputField = document.getElementById('value-two');
 const selectFrom = document.getElementById('from-currency');
 const selectTo = document.getElementById('to-currency');
+const swapSymbol = document.getElementById('swap-symbol');
 
+const swapCurrencies = () => {
+    const temp = selectFrom.value;
+    selectFrom.value = selectTo.value;
+    selectTo.value = temp;
+    outputField.value = 0;
+    if(swapSymbol.innerHTML === '⇌') {
+        swapSymbol.innerHTML = '⇋';
+    }
+    else {
+        swapSymbol.innerHTML = '⇌';
+    }
+}
 
 const convert = (from, to, amount) => {
     if(selectFrom.selectedIndex !== selectTo.selectedIndex) {
@@ -20,8 +33,17 @@ const convert = (from, to, amount) => {
         outputField.value = 0;
     }
 };
+
+
+
+//Event listener when button swap is clicked, to swap the currencies.
+swapSymbol.addEventListener('click', () => {
+    swapCurrencies();
+})
+
 //Event listener when button convert is clicked, to convert the value and display it.
 convertButton.addEventListener('click', () => {
     convert(selectFrom.options[selectFrom.selectedIndex].value, selectTo.options[selectTo.selectedIndex].value, inputField.value);
 
 })
+
