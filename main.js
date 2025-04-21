@@ -7,12 +7,18 @@ const selectTo = document.getElementById('to-currency');
 
 
 const convert = (from, to, amount) => {
-    fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=${from}&to=${to}`)
+    if(selectFrom.selectedIndex !== selectTo.selectedIndex) {
+        fetch(`https://v6.exchangerate-api.com/v6/b6e6c39f6ade3431969c0aa4/pair/${from}/${to}/${amount}`)
         .then((response) => response.json())
         .then((data) => {
-        const convertedAmount = Math.floor(data.rates[to],2);
+        const convertedAmount = Math.round(data.conversion_rate * 100) / 100;
         outputField.value = convertedAmount;
         });
+    }
+    else {
+        alert('Molimo vas koristite druge valute!')
+        outputField.value = 0;
+    }
 };
 //Event listener when button convert is clicked, to convert the value and display it.
 convertButton.addEventListener('click', () => {
